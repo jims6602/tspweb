@@ -1,0 +1,44 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<style>
+#events_table table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#events_table td, #events_table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+#events_table  tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+<h2>{{ title }}</h2>
+
+
+<table id="events_table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+  {% for my_event in Events %}
+  <tr>
+    <td>{{ my_event.name }}</td>
+    <td>{{ my_event.description }}</td>
+    <td>{{ my_event.status }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+
+{% endblock %}
